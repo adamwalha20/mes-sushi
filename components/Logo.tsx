@@ -2,25 +2,66 @@ import React from 'react';
 
 export const Logo: React.FC<{ className?: string }> = ({ className = "" }) => {
   return (
-    <div className={`flex items-center gap-2 ${className}`}>
-      <div className="relative w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-white flex items-center justify-center bg-black overflow-hidden group">
-         {/* Simple SVG representation of sushi since we don't have the real asset */}
-         <svg viewBox="0 0 100 100" className="w-full h-full p-1" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="50" cy="50" r="45" stroke="white" strokeWidth="2" />
-            <path d="M20 50 C20 30 80 30 80 50 C80 70 20 70 20 50 Z" fill="#F8F8F8" />
-            <path d="M30 45 C30 35 70 35 70 45 L70 55 C70 65 30 65 30 55 Z" fill="#D32F2F" />
-            <path d="M25 40 L75 20" stroke="#C9A24A" strokeWidth="3" />
-            <path d="M25 45 L75 25" stroke="#C9A24A" strokeWidth="3" />
-         </svg>
-      </div>
-      <div className="flex flex-col">
-        <span className="font-serif text-xl md:text-2xl font-bold tracking-wide text-white leading-none">
+    <div className={`flex items-center ${className}`}>
+      <svg
+        width="160"
+        height="160"
+        viewBox="0 0 160 160"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-12 md:h-14 w-auto"
+      >
+        {/* Outer circle border */}
+        <circle cx="80" cy="80" r="78" stroke="white" strokeWidth="2" />
+        <circle cx="80" cy="80" r="72" stroke="white" strokeWidth="1.5" />
+
+        {/* Sushi illustration */}
+        {/* Rice base */}
+        <ellipse cx="80" cy="55" rx="18" ry="10" fill="#F5F5F5" />
+
+        {/* Salmon topping */}
+        <path
+          d="M 62 52 Q 62 45 80 45 Q 98 45 98 52 L 98 58 Q 98 62 80 62 Q 62 62 62 58 Z"
+          fill="#E85D4A"
+        />
+
+        {/* Salmon texture lines */}
+        <path d="M 68 50 Q 80 48 92 50" stroke="#D94A3A" strokeWidth="0.5" opacity="0.6" />
+        <path d="M 68 54 Q 80 52 92 54" stroke="#D94A3A" strokeWidth="0.5" opacity="0.6" />
+
+        {/* Chopsticks */}
+        <line x1="58" y1="48" x2="102" y2="38" stroke="#C9A24A" strokeWidth="2.5" strokeLinecap="round" />
+        <line x1="58" y1="52" x2="102" y2="42" stroke="#C9A24A" strokeWidth="2.5" strokeLinecap="round" />
+
+        {/* Text: "mes sushis" */}
+        <text
+          x="80"
+          y="90"
+          fontFamily="'Brush Script MT', cursive, serif"
+          fontSize="20"
+          fill="white"
+          textAnchor="middle"
+          style={{ fontStyle: 'italic' }}
+        >
           mes sushis
-        </span>
-        <span className="font-sans text-[0.6rem] md:text-xs tracking-[0.2em] text-gold uppercase">
+        </text>
+
+        {/* Decorative line */}
+        <line x1="50" y1="98" x2="110" y2="98" stroke="white" strokeWidth="0.5" opacity="0.5" />
+
+        {/* Text: "by imen" */}
+        <text
+          x="80"
+          y="110"
+          fontFamily="Arial, sans-serif"
+          fontSize="10"
+          fill="white"
+          textAnchor="middle"
+          letterSpacing="2"
+        >
           by imen
-        </span>
-      </div>
+        </text>
+      </svg>
     </div>
   );
 };
