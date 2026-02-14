@@ -1,8 +1,11 @@
 import React from 'react';
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-black">
       {/* Background with subtle zoom effect */}
@@ -31,7 +34,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.2, duration: 1 }}
             className="text-gold uppercase text-xs md:text-sm mb-4 font-bold tracking-[0.3em]"
           >
-            Premium Japanese Cuisine
+            {t('hero.subtitle')}
           </motion.h2>
 
           <motion.h1
@@ -40,8 +43,8 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-serif text-6xl md:text-8xl lg:text-9xl text-white mb-6 leading-tight"
           >
-            The Art of <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold-light italic">Sushi</span>
+            {t('hero.title1')} <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-gold via-white to-gold-light italic">{t('hero.title2')}</span>
           </motion.h1>
 
           <motion.p
@@ -50,8 +53,7 @@ const Hero: React.FC = () => {
             transition={{ delay: 0.6, duration: 0.8 }}
             className="font-sans text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-light leading-relaxed"
           >
-            Experience the authentic taste of handmade sushi in the heart of Tunis.
-            Fresh ingredients, exquisite flavors, and a touch of luxury.
+            {t('hero.description')}
           </motion.p>
 
           <motion.div
@@ -64,7 +66,7 @@ const Hero: React.FC = () => {
               href="#menu"
               className="group px-10 py-4 bg-gold hover:bg-gold-light text-black font-bold uppercase tracking-widest text-xs transition-all rounded-sm hover:shadow-[0_0_30px_rgba(201,162,74,0.5)] flex items-center gap-2 overflow-hidden relative"
             >
-              <span className="relative z-10">View Menu</span>
+              <span className="relative z-10">{t('hero.viewMenu')}</span>
               <ArrowRight size={18} className="relative z-10 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
             </a>
@@ -72,7 +74,7 @@ const Hero: React.FC = () => {
               href="#contact"
               className="px-10 py-4 border border-white/20 hover:border-white text-white hover:bg-white/5 font-bold uppercase tracking-widest text-xs transition-all rounded-sm backdrop-blur-sm"
             >
-              Book a Table
+              {t('hero.contactUs')}
             </a>
           </motion.div>
         </motion.div>

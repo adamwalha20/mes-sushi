@@ -3,8 +3,10 @@ import { MENU_DATA } from '../constants';
 import MenuItem from './MenuItem';
 import { MenuCategoryType } from '../types';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const MenuSection: React.FC = () => {
+  const { language, t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>(MENU_DATA[0].id);
 
   const handleCategoryClick = (id: string) => {
@@ -32,10 +34,10 @@ const MenuSection: React.FC = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-20"
         >
-          <h2 className="font-serif text-5xl md:text-6xl text-white mb-6">Our Menu</h2>
+          <h2 className="font-serif text-5xl md:text-6xl text-white mb-6">{t('menu.title')}</h2>
           <div className="h-1 w-24 bg-gradient-to-r from-gold via-gold-light to-gold mx-auto mb-8 shadow-[0_0_10px_rgba(201,162,74,0.5)]"></div>
           <p className="text-gray-400 max-w-2xl mx-auto text-lg font-light leading-relaxed">
-            Discover our carefully curated selection of sushi rolls, from traditional favorites to our signature dragon creations.
+            {t('menu.subtitle')}
           </p>
         </motion.div>
 
@@ -47,11 +49,11 @@ const MenuSection: React.FC = () => {
                 key={category.id}
                 onClick={() => handleCategoryClick(category.id)}
                 className={`relative whitespace-nowrap px-2 py-1 text-sm uppercase tracking-[0.2em] transition-all duration-500 ${activeCategory === category.id
-                    ? 'text-gold font-bold'
-                    : 'text-gray-500 hover:text-white'
+                  ? 'text-gold font-bold'
+                  : 'text-gray-500 hover:text-white'
                   }`}
               >
-                {category.title}
+                {category.title[language]}
                 {activeCategory === category.id && (
                   <motion.div
                     layoutId="activeCategory"
@@ -65,7 +67,7 @@ const MenuSection: React.FC = () => {
 
         {/* Menu Items Grid */}
         <div className="space-y-24">
-          {MENU_DATA.map((category: MenuCategoryType, idx: number) => (
+          {MENU_DATA.map((category: any, idx: number) => (
             <motion.div
               key={category.id}
               id={category.id}
@@ -78,13 +80,13 @@ const MenuSection: React.FC = () => {
               <div className="flex items-center gap-6 mb-12">
                 <h3 className="font-serif text-3xl md:text-4xl text-white">
                   <span className="text-gold mr-4">/</span>
-                  {category.title}
+                  {category.title[language]}
                 </h3>
                 <div className="h-px flex-grow bg-white/10"></div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
-                {category.items.map((item) => (
+                {category.items.map((item: any) => (
                   <MenuItem key={item.id} item={item} />
                 ))}
               </div>
@@ -94,7 +96,9 @@ const MenuSection: React.FC = () => {
 
         <div className="mt-20 text-center border-t border-white/5 pt-10">
           <p className="text-xs text-gray-600 italic tracking-widest uppercase">
-            * Prices are in Tunisian Dinar (DT) &bull; Images are for illustration
+            {language === 'fr'
+              ? '* Les prix sont en Dinars Tunisiens (DT) • Les images sont à titre d’illustration'
+              : '* Prices are in Tunisian Dinar (DT) • Images are for illustration'}
           </p>
         </div>
       </div>

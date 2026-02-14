@@ -1,56 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mes Sushi - Premium Sushi Experience</title>
-    
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Fonts: Playfair Display (Serif) for headings, Lato (Sans) for body -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons (Script loaded for React components mainly, but good to have context) -->
-    <!-- Icons will be imported from lucide-react in code -->
 
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              gold: '#C9A24A',
-              'gold-light': '#E0B96B',
-              'gold-dark': '#A08030',
-              'dark-slate': '#1A1A1A',
-              'dark-stone': '#121212',
-            },
-            fontFamily: {
-              serif: ['"Playfair Display"', 'serif'],
-              sans: ['"Lato"', 'sans-serif'],
-            },
-            backgroundImage: {
-              'hero-pattern': "url('https://picsum.photos/seed/darktexture/1920/1080?grayscale&blur=2')",
-            }
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mes Sushi - Premium Sushi Experience</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Fonts: Playfair Display (Serif) for headings, Lato (Sans) for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+    rel="stylesheet">
+
+  <!-- Lucide Icons (Script loaded for React components mainly, but good to have context) -->
+  <!-- Icons will be imported from lucide-react in code -->
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            gold: '#C9A24A',
+            'gold-light': '#E0B96B',
+            'gold-dark': '#A08030',
+            'dark-slate': '#1A1A1A',
+            'dark-stone': '#121212',
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'serif'],
+            sans: ['"Lato"', 'sans-serif'],
+          },
+          backgroundImage: {
+            'hero-pattern': "url('https://picsum.photos/seed/darktexture/1920/1080?grayscale&blur=2')",
           }
         }
       }
-    </script>
-    <style>
-      /* Custom scrollbar for menu navigation */
-      .no-scrollbar::-webkit-scrollbar {
-          display: none;
-      }
-      .no-scrollbar {
-          -ms-overflow-style: none;  /* IE and Edge */
-          scrollbar-width: none;  /* Firefox */
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-    </style>
+    }
+  </script>
+  <style>
+    /* Custom scrollbar for menu navigation */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      /* IE and Edge */
+      scrollbar-width: none;
+      /* Firefox */
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      overflow-x: hidden;
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -61,10 +73,12 @@
   }
 }
 </script>
-<link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/index.css">
 </head>
-  <body class="bg-dark-stone text-gray-200 antialiased font-sans">
-    <div id="root"></div>
+
+<body class="bg-dark-stone text-gray-200 antialiased font-sans overflow-x-hidden">
+  <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
+
 </html>

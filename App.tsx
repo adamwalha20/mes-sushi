@@ -28,22 +28,22 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-dark-stone text-white selection:bg-gold selection:text-black">
+    <div className="flex flex-col min-h-screen bg-dark-stone text-white selection:bg-gold selection:text-black overflow-x-hidden">
       <Navbar />
-      
+
       <main className="flex-grow">
         <div id="home">
           <Hero />
         </div>
-        
+
         <div id="menu">
           <MenuSection />
         </div>
-        
+
         <div id="about">
           <About />
         </div>
-        
+
         <div id="contact">
           <Contact />
         </div>
@@ -54,9 +54,8 @@ const App: React.FC = () => {
       {/* Scroll to top button */}
       <button
         onClick={scrollToTop}
-        className={`fixed bottom-8 right-8 bg-gold hover:bg-gold-light text-black p-3 rounded-full shadow-lg transition-all duration-300 z-50 ${
-          showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
-        }`}
+        className={`fixed bottom-8 right-8 bg-gold hover:bg-gold-light text-black p-3 rounded-full shadow-lg transition-all duration-300 z-50 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'
+          }`}
         aria-label="Scroll to top"
       >
         <ArrowUp size={24} />

@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const About: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-24 bg-dark-slate relative overflow-hidden" id="about">
       {/* Decorative elements */}
@@ -38,31 +41,31 @@ const About: React.FC = () => {
             transition={{ duration: 1 }}
             className="w-full lg:w-1/2 text-center lg:text-left"
           >
-            <span className="text-gold uppercase tracking-widest text-sm font-bold mb-2 block">Our Story</span>
+            <span className="text-gold uppercase tracking-widest text-sm font-bold mb-2 block">{t('about.badge')}</span>
             <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 leading-tight">
-              Passion for Freshness & Tradition
+              {t('about.title')}
             </h2>
             <div className="space-y-6 text-gray-300 leading-relaxed mb-8">
               <p>
-                At <span className="text-gold font-serif italic">Mes Sushi</span>, we believe that sushi is more than just food; it is an art form. Founded by Imen with a vision to bring premium Japanese flavors to your table, every roll is crafted with meticulous attention to detail.
+                {t('about.p1')}
               </p>
               <p>
-                We source only the freshest ingredients—premium salmon, crisp vegetables, and authentic rice—to ensure every bite is a celebration of flavor. Whether you crave the crunch of a fried roll or the delicate balance of a classic Maki, our menu is designed to delight.
+                {t('about.p2')}
               </p>
             </div>
 
             <div className="grid grid-cols-3 gap-4 border-t border-gray-800 pt-8">
               <div className="text-center lg:text-left">
-                <span className="block text-2xl font-serif text-gold mb-1">100%</span>
-                <span className="text-xs uppercase tracking-wider text-gray-500">Fresh</span>
+                <span className="block text-2xl font-serif text-gold mb-1">{t('about.stat1')}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500">{t('about.label1')}</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block text-2xl font-serif text-gold mb-1">25+</span>
-                <span className="text-xs uppercase tracking-wider text-gray-500">Rolls</span>
+                <span className="block text-2xl font-serif text-gold mb-1">{t('about.stat2')}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500">{t('about.label2')}</span>
               </div>
               <div className="text-center lg:text-left">
-                <span className="block text-2xl font-serif text-gold mb-1">4.9</span>
-                <span className="text-xs uppercase tracking-wider text-gray-500">Rating</span>
+                <span className="block text-2xl font-serif text-gold mb-1">{t('about.stat3')}</span>
+                <span className="text-xs uppercase tracking-wider text-gray-500">{t('about.label3')}</span>
               </div>
             </div>
           </motion.div>

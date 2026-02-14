@@ -1,15 +1,20 @@
+export interface BilingualText {
+  fr: string;
+  en: string;
+}
+
 export interface MenuItemType {
   id: string;
-  name: string;
+  name: BilingualText;
   price: string;
-  description: string;
+  description: BilingualText;
   image?: string;
   isVegetarian?: boolean;
 }
 
 export interface MenuCategoryType {
   id: string;
-  title: string;
+  title: BilingualText;
   items: MenuItemType[];
 }
 
